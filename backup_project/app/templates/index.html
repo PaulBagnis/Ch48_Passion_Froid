@@ -1,0 +1,128 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+
+{% block link %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+{% endblock %}
+
+{% block body %}
+<nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo center">Passion froid</a>
+      <ul id="nav-mobile" class="left hide-on-med-and-down">
+        <li><a href="#upload">Insertion</a></li>
+        <li><a href="#search">Recherche</a></li>
+      </ul>
+    </div>
+</nav>
+
+{% if message %}
+<div class='card-panel red darken-1 center-align'> {{message}} </div>
+{% endif %}
+
+<div id="upload" class="row">   
+    <div class="col s10 offset-s1"> 
+        <form enctype="multipart/form-data" id="myform" action="" method="POST">
+
+            <div class="row">
+                <div class="input-field col s5">
+                    <input placeholder="Nom de l'image" id="picture_name" name="picture_name" type="text" class="validate">
+                    <label for="picture_name">Nom de l'image</label>
+                </div>
+
+                <div class="input-field col s5">
+                    <input placeholder="Type d'image" id="picture_type" name="picture_type" type="text" class="validate">
+                    <label for="picture_type">Type de l'image</label>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col s2">
+                    <label>
+                      <input type="checkbox" name="with_product" id="with_product" name="with_product"/>
+                      <span>Avec produit</span>
+                    </label>
+                </div>
+
+                <div class="col s2">
+                    <label>
+                      <input type="checkbox" id="with_human" name="with_human"/>
+                      <span>Avec humain</span>
+                    </label>
+                </div>
+
+                <div class="col s2">
+                    <label>
+                      <input type="checkbox" id="is_instit" name="is_instit"/>
+                      <span>Photo institutionnelle</span>
+                    </label>
+                </div>
+
+                <div class="col s2">
+                    <label>
+                      <input type="checkbox" id="is_vertical" name="is_vertical"/>
+                      <span>Format vertical</span>
+                    </label>
+                </div>
+
+                <div class="col s2">
+                    <label>
+                      <input type="checkbox" id="is_limited" name="is_limited"/>
+                      <span>Droit utilisation limitée</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s5">
+                    <input placeholder="Crédit de la photo" id="picture_author" type="text" class="validate">
+                    <label for="picture_author">Crédit de l'image</label>
+                </div>
+
+
+                <div class="input-field col s5">
+                    <input placeholder="Copyrigth" id="picture_copyright" type="text" class="validate">
+                    <label for="picture_copyright">Copyright</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s10">
+                    <input placeholder="Date de la photo" id="picture_date" type="text" class="validate">
+                    <label for="picture_date">Date de l'image</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s10">
+                    <textarea id="picture_tags" class="materialize-textarea"></textarea>
+                    <label for="picture_tags">Tags</label>
+                </div>
+            </div>
+
+            <input type="file" id="picture" name="picture" accept="image/png, image/jpeg">
+           
+
+
+            <button class="btn waves-effect waves-light" type="submit">
+                <i class="material-icons right">Enregistrer</i>
+            </button>
+    
+        </form> 
+    </div>
+</div>
+
+<div id="search">
+
+</div>
+{% endblock body %}
+
+{% block js %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script
+			  src="https://code.jquery.com/jquery-3.5.1.js"
+			  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+			  crossorigin="anonymous">
+    </script>
+{% endblock %}
